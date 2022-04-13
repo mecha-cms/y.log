@@ -8,7 +8,7 @@
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>
           <time datetime="<?= $page->time->ISO8601; ?>">
-            <?= $page->time->{r('-', '_', $site->language)}; ?>
+            <?= $page->time('%A, %B %d, %Y'); ?>
           </time>
         </p>
       <?php endif; ?>
