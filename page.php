@@ -1,4 +1,4 @@
-<?= self::before(); ?>
+<?= self::enter(); ?>
 <main>
   <?php if ($page->exist): ?>
     <article id="page:<?= $page->id; ?>">
@@ -37,4 +37,4 @@
     <?= $pager; ?>
   </nav>
 <?php endif; ?>
-<?= self::after(); ?>
+<?= self::exit(); ?>
