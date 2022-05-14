@@ -1,5 +1,10 @@
 <?php
 
+// Set page `type` to `Markdown` by default
+if (null !== State::get('x.markdown') && !State::get('x.page.page.type')) {
+    State::set('x.page.page.type', 'Markdown');
+}
+
 // Add CSS file to the `<head>` section…
 if (defined('TEST') && TEST) {
     Asset::set('index.css', 20);
