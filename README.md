@@ -12,6 +12,6 @@ Log Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
-### 2.0.0
+### 2.0.1
 
  - [x] Moved from [./mecha-cms/mecha](https://github.com/mecha-cms/mecha).
