@@ -34,7 +34,7 @@
 </main>
 <?php if ($site->has('page') && $site->has('parent')): ?>
   <nav>
-    <?= $pager; ?>
+    <?= self::pager(); ?>
   </nav>
 <?php endif; ?>
 <?= self::exit(); ?>

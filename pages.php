@@ -51,6 +51,6 @@
   <?php endif; ?>
 </main>
 <nav>
-  <?= $pager; ?>
+  <?= self::pager(); ?>
 </nav>
 <?= self::exit(); ?>
