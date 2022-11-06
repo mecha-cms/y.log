@@ -32,9 +32,4 @@
     </article>
   <?php endif; ?>
 </main>
-<?php if ($site->has('page') && $site->has('parent')): ?>
-  <nav>
-    <?= self::pager(); ?>
-  </nav>
-<?php endif; ?>
 <?= self::exit(); ?>

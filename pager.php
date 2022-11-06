@@ -1,9 +1,9 @@
 <?php if ($prev = $pager->prev): ?>
-  <a href="<?= $prev->link ?? $prev->url; ?>" rel="prev" title="<?= i('Previous'); ?>">
+  <a href="<?= $prev->link; ?>" rel="prev" title="<?= $prev->title; ?>">
     &#x25C0;
   </a>
 <?php else: ?>
-  <a aria-disabled="true" rel="prev" title="<?= i('Previous'); ?>">
+  <a aria-disabled="true" rel="prev">
     &#x25C0;
   </a>
 <?php endif; ?>
@@ -23,11 +23,11 @@
   <?php endif; ?>
 <?php endif; ?>
 <?php if ($next = $pager->next): ?>
-  <a href="<?= $next->link ?? $next->url; ?>" rel="next" title="<?= i('Next'); ?>">
+  <a href="<?= $next->link; ?>" rel="next" title="<?= $next->title; ?>">
     &#x25B6;
   </a>
 <?php else: ?>
-  <a aria-disabled="true" rel="prev" title="<?= i('Next'); ?>">
+  <a aria-disabled="true" rel="next">
     &#x25B6;
   </a>
 <?php endif; ?>
