@@ -7,6 +7,7 @@
     &#x25c0;
   </a>
 <?php endif; ?>
+&#20;
 <?php if ($parent = $page->parent): ?>
   <a href="<?= $parent->url; ?>" title="<?= i('Parent'); ?>">
     &#x25c6;
@@ -22,6 +23,7 @@
     </a>
   <?php endif; ?>
 <?php endif; ?>
+&#20;
 <?php if ($next = $pager->next): ?>
   <a href="<?= $next->link; ?>" rel="next" title="<?= $next->title; ?>">
     &#x25b6;

@@ -335,7 +335,9 @@ nav ul {
 }
 
 main + nav {
-  text-align: center;
+  display: flex;
+  gap: 0.25em;
+  justify-content: center;
 }
 
 body > div {
