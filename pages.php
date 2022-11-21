@@ -14,7 +14,7 @@
             <h3>
               <?php if ($page->link): ?>
                 <a href="<?= $page->link; ?>" rel="nofollow" target="_blank">
-                  <?= $page->title; ?> &#x21E2;
+                  <?= $page->title; ?> &#x21e2;
                 </a>
               <?php else: ?>
                 <a href="<?= $page->url; ?>">

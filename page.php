@@ -16,7 +16,7 @@
       <?php if ($page->link): ?>
         <p>
           <a href="<?= $page->link; ?>" rel="nofollow" target="_blank">
-            <?= i('Link'); ?> &#x21E2;
+            <?= i('Link'); ?> &#x21e2;
           </a>
         </p>
       <?php endif; ?>
