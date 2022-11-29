@@ -336,7 +336,7 @@ nav ul {
 
 main + nav {
   display: flex;
-  gap: 0.25em;
+  gap: 0.5em;
   justify-content: center;
 }
 
