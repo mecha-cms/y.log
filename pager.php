@@ -1,5 +1,5 @@
 <?php if ($prev = $pager->prev): ?>
-  <a href="<?= $prev->link; ?>" rel="prev" title="<?= $prev->title; ?>">
+  <a href="<?= $prev->link; ?>" rel="prev" title="<?= w($prev->title); ?>">
     &#x25c0;
   </a>
 <?php else: ?>
@@ -23,7 +23,7 @@
   <?php endif; ?>
 <?php endif; ?>
 <?php if ($next = $pager->next): ?>
-  <a href="<?= $next->link; ?>" rel="next" title="<?= $next->title; ?>">
+  <a href="<?= $next->link; ?>" rel="next" title="<?= w($next->title); ?>">
     &#x25b6;
   </a>
 <?php else: ?>

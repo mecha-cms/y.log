@@ -118,14 +118,14 @@ a {
 }
 
 [role='link'],
-a:any-link {
+a:where(:any-link) {
   color: #00a;
 }
 
 [role='link']:active,
 [role='link']:focus,
-a:any-link:active,
-a:any-link:focus {
+a:where(:any-link):active,
+a:where(:any-link):focus {
   color: #a00;
 }
 

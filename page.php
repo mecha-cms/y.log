@@ -7,7 +7,7 @@
       </h2>
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>
-          <time datetime="<?= $page->time->ISO8601; ?>">
+          <time datetime="<?= $page->time->format('c'); ?>">
             <?= $page->time('%A, %B %d, %Y'); ?>
           </time>
         </p>
