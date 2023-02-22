@@ -1,13 +1,13 @@
 <?= self::enter(); ?>
 <main>
   <?php if ($page->exist): ?>
-    <article id="page:<?= $page->id; ?>">
+    <article id="page:<?= eat($page->id); ?>">
       <h2>
         <?= $page->title; ?>
       </h2>
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>
-          <time datetime="<?= $page->time->format('c'); ?>">
+          <time datetime="<?= eat($page->time->format('c')); ?>">
             <?= $page->time('%A, %B %d, %Y'); ?>
           </time>
         </p>
@@ -15,7 +15,7 @@
       <?= $page->content; ?>
       <?php if ($page->link): ?>
         <p>
-          <a href="<?= $page->link; ?>" rel="nofollow" target="_blank">
+          <a href="<?= eat($page->link); ?>" rel="nofollow" target="_blank">
             <?= i('Link'); ?> &#x21e2;
           </a>
         </p>

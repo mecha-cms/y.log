@@ -6,7 +6,7 @@
           <?= i('Home'); ?>
         </a>
       <?php else: ?>
-        <a href="<?= $url; ?>">
+        <a href="<?= eat($url); ?>">
           <?= i('Home'); ?>
         </a>
       <?php endif; ?>
@@ -18,7 +18,7 @@
             <?= $link->title; ?>
           </a>
         <?php else: ?>
-          <a href="<?= $link->link ?: $link->url; ?>">
+          <a href="<?= eat($link->link ?: $link->url); ?>">
             <?= $link->title; ?>
           </a>
         <?php endif; ?>

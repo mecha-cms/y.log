@@ -1,5 +1,5 @@
 <?php if ($prev = $pager->prev): ?>
-  <a href="<?= $prev->link; ?>" rel="prev" title="<?= w($prev->title); ?>">
+  <a href="<?= eat($prev->link); ?>" rel="prev" title="<?= eat($prev->title); ?>">
     &#x25c0;
   </a>
 <?php else: ?>
@@ -8,22 +8,22 @@
   </a>
 <?php endif; ?>
 <?php if ($parent = $page->parent): ?>
-  <a href="<?= $parent->url; ?>" title="<?= i('Parent'); ?>">
+  <a href="<?= eat($parent->url); ?>" title="<?= eat(i('Parent')); ?>">
     &#x25c6;
   </a>
 <?php else: ?>
   <?php if ($site->is('home')): ?>
-    <a aria-disabled="true" title="<?= i('Parent'); ?>">
+    <a aria-disabled="true" title="<?= eat(i('Parent')); ?>">
       &#x25c6;
     </a>
   <?php else: ?>
-    <a href="<?= $url; ?>" title="<?= i('Home'); ?>">
+    <a href="<?= eat($url); ?>" title="<?= eat(i('Home')); ?>">
       &#x25c6;
     </a>
   <?php endif; ?>
 <?php endif; ?>
 <?php if ($next = $pager->next): ?>
-  <a href="<?= $next->link; ?>" rel="next" title="<?= w($next->title); ?>">
+  <a href="<?= eat($next->link); ?>" rel="next" title="<?= eat($next->title); ?>">
     &#x25b6;
   </a>
 <?php else: ?>

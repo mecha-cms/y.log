@@ -1,7 +1,7 @@
 <?= self::enter(); ?>
 <main>
   <?php if ($page->exist): ?>
-    <article id="page:<?= $page->id; ?>">
+    <article id="page:<?= eat($page->id); ?>">
       <h2>
         <?= $page->title; ?>
       </h2>
@@ -10,14 +10,14 @@
       </p>
       <?php if ($pages->count): ?>
         <?php foreach ($pages as $page): ?>
-          <article id="page:<?= $page->id; ?>">
+          <article id="page:<?= eat($page->id); ?>">
             <h3>
               <?php if ($page->link): ?>
-                <a href="<?= $page->link; ?>" rel="nofollow" target="_blank">
+                <a href="<?= eat($page->link); ?>" rel="nofollow" target="_blank">
                   <?= $page->title; ?> &#x21e2;
                 </a>
               <?php else: ?>
-                <a href="<?= $page->url; ?>">
+                <a href="<?= eat($page->url); ?>">
                   <?= $page->title; ?>
                 </a>
               <?php endif; ?>
