@@ -10,7 +10,7 @@
       <!-- Prevent search engines from indexing pages with `archive` state -->
       <meta content="noindex" name="robots">
     <?php endif; ?>
-    <meta content="<?= $page->author; ?>" name="author">
+    <meta content="<?= eat($page->author); ?>" name="author">
     <title>
       <?= w($t->reverse); ?>
     </title>
