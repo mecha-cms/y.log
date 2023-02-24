@@ -13,9 +13,9 @@
         </p>
       <?php endif; ?>
       <?= $page->content; ?>
-      <?php if ($page->link): ?>
+      <?php if ($link = $page->link): ?>
         <p>
-          <a href="<?= eat($page->link); ?>" rel="nofollow" target="_blank">
+          <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
             <?= i('Link'); ?> &#x21e2;
           </a>
         </p>
