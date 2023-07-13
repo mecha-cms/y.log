@@ -1,15 +1,11 @@
 ---
 title: Log
 description: Minimal layout with almost no dependencies.
-image: /lot/y/log/index.png
-images:
-- /lot/y/log/index.png
-- /lot/y/log/index/1.png
+icon: 'M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z'
+color: '#550bdf'
 author: Taufik Nurrohman
 type: Markdown
 version: 2.0.0
 ...
 
-This layout uses only Serif and Mono fonts. Different operating systems may produce slightly different results. This
-preview was taken from a computer running Arch Linux operating system. The Serif font shown in the preview should be
-[DejaVu Serif](https://commons.wikimedia.org/wiki/File:DejaVuSerifSpecimen.svg "DejaVu Serif · Wikimedia Commons").
+This is the default layout with the most basic features.
