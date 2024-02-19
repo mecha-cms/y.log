@@ -24,6 +24,7 @@ footer,
 header,
 main,
 nav,
+search,
 section {
   display: block;
 }
@@ -81,6 +82,10 @@ figure img {
   display: block;
 }
 
+figure figcaption {
+  margin-top: var(--margin);
+}
+
 sub,
 sup {
   line-height: 0;
@@ -97,6 +102,7 @@ sup {
   vertical-align: super;
 }
 
+[role='deletion'],
 del,
 s {
   text-decoration: line-through;
@@ -108,6 +114,7 @@ img {
   max-width: 100%;
 }
 
+[role='insertion'],
 ins,
 u {
   text-decoration: underline;
@@ -163,6 +170,7 @@ label input + span {
   vertical-align: middle;
 }
 
+[role='mark'],
 mark {
   background: #ff0;
   color: inherit;
@@ -211,13 +219,17 @@ sup {
   font-size: 0.833em;
 }
 
+* + address,
+* + article,
+* + aside,
 * + blockquote,
 * + details,
+* + div,
 * + dl,
 * + dt,
 * + fieldset,
-* + figcaption,
 * + figure,
+* + footer,
 * + form,
 * + h1,
 * + h2,
@@ -225,11 +237,14 @@ sup {
 * + h4,
 * + h5,
 * + h6,
+* + header,
 * + hr,
+* + main,
 * + nav,
 * + ol,
 * + p,
 * + pre,
+* + search,
 * + section,
 * + table,
 * + ul {
@@ -372,11 +387,6 @@ body > div > header {
 }
 
 [role='button'],
-[role='combobox'],
-[role='listbox'],
-[role='searchbox'],
-[role='spinbutton'],
-[role='textbox'],
 button,
 input,
 output,
@@ -432,9 +442,6 @@ input[type='submit']:focus {
   color: #fff;
 }
 
-[role='checkbox'],
-[role='radio'],
-[role='switch'],
 input[type='checkbox'],
 input[type='color'],
 input[type='file'],
@@ -447,7 +454,6 @@ input[type='radio'] {
   width: auto;
 }
 
-[role='slider'],
 input[type='image'],
 input[type='range'] {
   cursor: pointer;
@@ -458,11 +464,9 @@ input[type='color'] {
   width: calc((1rem * var(--font-height)) * 1.25);
 }
 
-[role='combobox'],
-[role='listbox'],
 select {
-  -moz-padding-start: calc((1rem * var(--font-height)) - var(--font-size) - 3px); /* <https://github.com/twbs/bootstrap/issues/32636> */
   appearance: none;
+  cursor: pointer;
 }
 
 ::-moz-color-swatch {
@@ -495,7 +499,6 @@ table th {
   vertical-align: top;
 }
 
-[role='textbox'][aria-multiline='true'],
 textarea {
   min-height: calc(var(--font-size) * 6);
   resize: vertical;
@@ -517,6 +520,8 @@ body > [role='alert'] {
 }
 
 [role='doc-endnotes'] {
+  border-top: 1px solid;
+  font-size: 0.833em;
   margin-top: var(--gap);
 }
 
