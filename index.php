@@ -14,7 +14,7 @@ if (defined('TEST') && TEST) {
 }
 
 // Create site link data to be used in navigation
-$GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
+lot('links', new Anemone((static function ($links, $state, $url) {
     $index = LOT . D . 'page' . D . trim(strtr($state->route, '/', D), D) . '.page';
     $path = $url->path . '/';
     foreach (g(LOT . D . 'page', 'page') as $k => $v) {
@@ -29,10 +29,10 @@ $GLOBALS['links'] = new Anemone((static function ($links, $state, $url) {
     }
     ksort($links);
     return $links;
-})([], $state, $url));
+})([], $state, $url)));
 
 // Create site trace data to be used in navigation
-$GLOBALS['traces'] = new Pages((static function ($traces, $state, $url) {
+lot('traces', new Pages((static function ($traces, $state, $url) {
     $chops = explode('/', trim($url->path ?? "", '/'));
     $v = LOT . D . 'page';
     while ($chop = array_shift($chops)) {
@@ -45,4 +45,4 @@ $GLOBALS['traces'] = new Pages((static function ($traces, $state, $url) {
         }
     }
     return $traces;
-})([], $state, $url));
+})([], $state, $url)));
