@@ -18,6 +18,14 @@
   text-transform: none;
 }
 
+:where(address, article, aside, blockquote, dd, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, hgroup > p, h6, header, hgroup, hr, main, nav, ol, p, pre, search, section, table, ul):where(:not(:last-child)) {
+  margin-bottom: var(--margin);
+}
+
+li:where(:not(:first-child)) > :where(address, article, aside, blockquote, dd, details, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, hgroup > p, h6, header, hgroup, hr, main, nav, p, pre, search, section, table):where(:first-child) {
+  margin-top: var(--margin);
+}
+
 article,
 aside,
 footer,
@@ -32,10 +40,6 @@ section {
 ::placeholder {
   color: inherit;
   opacity: 0.5;
-}
-
-:focus:not(:focus-visible) {
-  outline: 0;
 }
 
 abbr {
@@ -78,7 +82,10 @@ figure {
 }
 
 figure [role='img'],
-figure img {
+figure audio,
+figure iframe,
+figure img,
+figure video {
   display: block;
 }
 
@@ -143,6 +150,10 @@ body {
 details summary {
   cursor: pointer;
   user-select: none;
+}
+
+details[open] > summary {
+  margin-bottom: var(--margin);
 }
 
 html {
@@ -219,38 +230,6 @@ sup {
   font-size: 0.833em;
 }
 
-* + address,
-* + article,
-* + aside,
-* + blockquote,
-* + details,
-* + div,
-* + dl,
-* + dt,
-* + fieldset,
-* + figure,
-* + footer,
-* + form,
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
-* + h6,
-* + header,
-* + hr,
-* + main,
-* + nav,
-* + ol,
-* + p,
-* + pre,
-* + search,
-* + section,
-* + table,
-* + ul {
-  margin-top: var(--margin);
-}
-
 ol,
 ul {
   margin-left: calc(var(--margin) * 2);
@@ -267,13 +246,6 @@ hr::before {
   content: '\2022\2002\2022\2002\2022';
 }
 
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-top: 0;
-}
-
 ul {
   list-style: disc;
 }
@@ -286,10 +258,6 @@ fieldset {
 legend {
   margin: 0 0 calc(var(--margin) / 3);
   padding: 0 calc(var(--font-size) / 2);
-}
-
-legend + * {
-  margin-top: 0;
 }
 
 blockquote {
@@ -321,18 +289,13 @@ header {
   margin-bottom: var(--gap);
 }
 
+hgroup p {
+  font-size: 1.2em;
+}
+
 footer,
 nav {
   margin-top: var(--gap);
-}
-
-* + article {
-  margin-top: var(--margin);
-}
-
-h1 + p,
-h2 + p {
-  font-size: 1.2em;
 }
 
 nav li,
@@ -365,6 +328,10 @@ body > div > header {
   text-align: center;
 }
 
+body > div > header p {
+  font-size: 1.2em;
+}
+
 @media (min-width: 801px) {
   body > div > footer,
   body > div > header {
@@ -372,11 +339,12 @@ body > div > header {
     justify-content: space-between;
   }
   body > div > footer p {
-    margin-top: 0;
+    margin-bottom: 0;
   }
   body > div > header h1 {
     font: inherit;
     font-weight: bold;
+    margin-bottom: 0;
   }
   body > div > header nav {
     margin-top: 0;
@@ -527,4 +495,8 @@ body > [role='alert'] {
 
 [role='doc-endnotes'] hr {
   display: none;
+}
+
+[role='doc-endnotes'] ol {
+  margin-top: var(--margin);
 }

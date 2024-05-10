@@ -2,16 +2,18 @@
 <main>
   <?php if ($page->exist): ?>
     <article id="page:<?= eat($page->id); ?>">
-      <h2>
-        <?= $page->title; ?>
-      </h2>
-      <?php if ($site->has('page') && $site->has('parent')): ?>
-        <p>
-          <time datetime="<?= eat($page->time->format('c')); ?>">
-            <?= $page->time('%A, %B %d, %Y'); ?>
-          </time>
-        </p>
-      <?php endif; ?>
+      <hgroup>
+        <h2>
+          <?= $page->title; ?>
+        </h2>
+        <?php if ($site->has('page') && $site->has('parent')): ?>
+          <p>
+            <time datetime="<?= eat($page->time->format('c')); ?>">
+              <?= $page->time('%A, %B %d, %Y'); ?>
+            </time>
+          </p>
+        <?php endif; ?>
+      </hgroup>
       <?= $page->content; ?>
       <?php if ($link = $page->link): ?>
         <p>
