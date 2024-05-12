@@ -9,13 +9,16 @@
 *,
 ::after,
 ::before {
+  background: 0 0;
   border: 0;
   box-sizing: border-box;
+  color: inherit;
   font: inherit;
   margin: 0;
   padding: 0;
+  text-align: inherit;
   text-decoration: none;
-  text-transform: none;
+  word-wrap: break-word;
 }
 
 ::-moz-focus-inner {
@@ -77,10 +80,7 @@ figure {
 }
 
 figure [role='img'],
-figure audio,
-figure iframe,
-figure img,
-figure video {
+figure img {
   display: block;
 }
 
@@ -142,7 +142,7 @@ body {
   margin: var(--gap);
 }
 
-details summary {
+details > summary {
   cursor: pointer;
   user-select: none;
 }
@@ -168,11 +168,11 @@ label {
   display: inline-block;
   height: calc((1rem * var(--font-height)) * 1.25);
   line-height: calc((1rem * var(--font-height)) * 1.25);
+  user-select: none;
 }
 
 label input + span {
   display: inline-block;
-  user-select: none;
   vertical-align: middle;
 }
 
@@ -184,6 +184,16 @@ mark {
 
 
 /* <https://www.modularscale.com/?1&em&1.2> */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: 1.2;
+}
 
 h1 {
   font-size: 3.583em;
@@ -207,16 +217,6 @@ h5 {
 
 h6 {
   font-size: 1.2em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-  line-height: 1.2;
 }
 
 small,
@@ -276,7 +276,6 @@ pre code {
   display: block;
   padding: calc(var(--margin) - (((1rem * var(--font-height)) - var(--font-size)) / 2)) var(--margin);
   white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 header {
@@ -485,8 +484,4 @@ body > [role='alert'] {
 
 [role='doc-endnotes'] hr {
   display: none;
-}
-
-[role='doc-endnotes'] ol {
-  margin-top: var(--margin);
 }
