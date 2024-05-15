@@ -2,14 +2,12 @@
 <main>
   <?php if ($page->exist): ?>
     <article id="page:<?= eat($page->id); ?>">
-      <hgroup>
-        <h2>
-          <?= $page->title; ?>
-        </h2>
-        <p>
-          <?= $page->description; ?>
-        </p>
-      </hgroup>
+      <h2>
+        <?= $page->title; ?>
+      </h2>
+      <p>
+        <?= $page->description; ?>
+      </p>
       <?php if ($pages->count): ?>
         <?php foreach ($pages as $page): ?>
           <article id="page:<?= eat($page->id); ?>">

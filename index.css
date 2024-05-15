@@ -52,6 +52,7 @@ abbr[title]:hover {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;
@@ -231,7 +232,6 @@ ul {
 }
 
 hr {
-  color: inherit;
   height: auto;
   margin: var(--gap) 0;
   text-align: center;
@@ -282,16 +282,20 @@ header {
   margin-bottom: var(--gap);
 }
 
+h2 + p + article,
+h3 + p + article,
+hgroup + article {
+  margin-top: var(--gap);
+}
+
+h2 + p,
+h3 + p,
 hgroup p {
   font-size: 1.2em;
 }
 
 footer,
 nav {
-  margin-top: var(--gap);
-}
-
-hgroup + article {
   margin-top: var(--gap);
 }
 
