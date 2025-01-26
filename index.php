@@ -15,7 +15,7 @@ if (defined('TEST') && TEST) {
 
 // Create site link data to be used in navigation
 lot('links', new Anemone((static function ($links, $state, $url) {
-    $index = LOT . D . 'page' . D . trim(strtr($state->route, '/', D), D) . '.page';
+    $index = LOT . D . 'page' . D . trim(strtr($state->route ?? 'index', '/', D), D) . '.page';
     $path = $url->path . '/';
     foreach (g(LOT . D . 'page', 'page') as $k => $v) {
         // Exclude home page
