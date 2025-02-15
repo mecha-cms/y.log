@@ -8,7 +8,8 @@
   </a>
 <?php endif; ?>
 <?php if ($parent = $page->parent): ?>
-  <a href="<?= eat($parent->url); ?>" title="<?= eat(i('Parent')); ?>">
+  <?php $children = $parent->children ?? false; ?>
+  <a href="<?= eat($parent->url . ($children && $children->count ? '/1' : "")); ?>" title="<?= eat(i('Parent')); ?>">
     &#x25c6;
   </a>
 <?php else: ?>
