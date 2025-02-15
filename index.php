@@ -37,6 +37,9 @@ function traces(string $folder) {
     return $r;
 }
 
+\lot('links', new \Anemone(links(\LOT . \D . 'page')));
+\lot('traces', new \Pages(traces(\LOT . \D . 'page')));
+
 // Set page `type` to `Markdown` by default
 if (null !== \State::get('x.markdown') && !\State::get('x.page.page.type')) {
     \State::set('x.page.page.type', 'Markdown');
@@ -49,6 +52,3 @@ if (\defined("\\TEST") && \TEST) {
     // Serve the minified version if `TEST` mode is off
     \Asset::set('index.min.css', 20);
 }
-
-\lot('links', new \Anemone(links(\LOT . \D . 'page')));
-\lot('traces', new \Pages(traces(\LOT . \D . 'page')));
