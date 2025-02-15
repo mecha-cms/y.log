@@ -18,7 +18,7 @@
             <?= $link->title; ?>
           </a>
         <?php else: ?>
-          <a href="<?= eat($link->link ?: $link->url); ?>">
+          <a href="<?= eat($link->link ?: ($link->url . ($link->pages->count ? '/1' : ""))); ?>">
             <?= $link->title; ?>
           </a>
         <?php endif; ?>
