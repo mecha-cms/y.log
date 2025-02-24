@@ -21,9 +21,9 @@ function links(string $folder) {
 }
 
 // Create site trace data to be used in navigation
-function traces(string $folder) {
+function traces(string $folder, string $of) {
     \extract(\lot(), \EXTR_SKIP);
-    $chops = \explode('/', \trim($url->path ?? "", '/'));
+    $chops = \explode('/', \trim($of, '/'));
     $r = [];
     while ($chop = \array_shift($chops)) {
         $folder .= \D . $chop;
@@ -38,7 +38,7 @@ function traces(string $folder) {
 }
 
 \lot('links', new \Anemone(links(\LOT . \D . 'page')));
-\lot('traces', new \Pages(traces(\LOT . \D . 'page')));
+\lot('traces', new \Pages(traces(\LOT . \D . 'page', $url->path ?? "")));
 
 // Set page `type` to `Markdown` by default
 if (null !== \State::get('x.markdown') && !\State::get('x.page.page.type')) {
