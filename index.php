@@ -5,11 +5,11 @@ function links(string $folder) {
     \extract(\lot(), \EXTR_SKIP);
     $r = [];
     $route_current = $url->path . '/';
-    $route_index = '/' . \trim($state->route ?? 'index', '/');
+    $route_r = '/' . \trim($state->route ?? 'index', '/');
     foreach (\g($folder, 'page') as $k => $v) {
         $v = new \Page($k);
         // Exclude home page
-        if ($route_index === ($route = $v->route)) {
+        if ($route_r === ($route = $v->route)) {
             continue;
         }
         // Add current state
