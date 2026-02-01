@@ -6,7 +6,7 @@ function links(string $folder) {
     $r = [];
     $route_current = $url->path . '/';
     $route_r = '/' . \trim($state->route ?? 'index', '/');
-    foreach (\g($folder, \implode(',', \array_keys((array) ($state->x->page->x ?? []))) ?: 'txt') as $k => $v) {
+    foreach (\g($folder, \x\page\x()) as $k => $v) {
         $v = new \Page($k);
         // Exclude home page
         if ($route_r === ($route = $v->route)) {
@@ -24,11 +24,10 @@ function links(string $folder) {
 function traces(string $folder, string $of) {
     \extract(\lot(), \EXTR_SKIP);
     $chops = \explode('/', \trim($of, '/'));
-    $extensions = \implode(',', \array_keys((array) ($state->x->page->x ?? []))) ?: 'txt';
     $r = [];
     while ($chop = \array_shift($chops)) {
         $folder .= \D . $chop;
-        if ($file = \exist($folder . '.{' . $extensions . '}', 1)) {
+        if ($file = \exist($folder . '.{' . \x\page\x() . '}', 1)) {
             $r[] = $file;
         }
     }
@@ -39,8 +38,8 @@ function traces(string $folder, string $of) {
 \lot('traces', new \Pages(traces(\LOT . \D . 'page', $url->path ?? "")));
 
 // Set page `type` to `Markdown` by default
-if (null !== \State::get('x.markdown') && !\State::get('x.page.data.type')) {
-    \State::set('x.page.data.type', 'Markdown');
+if (null !== \State::get('x.markdown') && !\State::get('x.page.lot.type')) {
+    \State::set('x.page.lot.type', 'Markdown');
 }
 
 // Add CSS file to the `<head>` section…
