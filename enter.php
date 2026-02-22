@@ -11,7 +11,7 @@
       <?= w($t->reverse); ?>
     </title>
     <link href="/favicon.ico" rel="icon">
-    <link href="<?= eat($link->path); ?>" rel="canonical">
+    <link href="<?= eat($link->current(false, false)); ?>" rel="canonical">
   </head>
   <body>
     <?= self::alert(); ?>
