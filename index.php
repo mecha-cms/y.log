@@ -4,7 +4,7 @@
 function links(string $folder) {
     \extract(\lot(), \EXTR_SKIP);
     $r = [];
-    $route_current = $url->path . '/';
+    $route_current = $link->path . '/';
     $route_r = '/' . \trim($state->route ?? 'index', '/');
     foreach (\g($folder, \x\page\x()) as $k => $v) {
         $v = new \Page($k);
@@ -35,7 +35,7 @@ function traces(string $folder, string $of) {
 }
 
 \lot('links', new \Anemone(links(\LOT . \D . 'page')));
-\lot('traces', new \Pages(traces(\LOT . \D . 'page', $url->path ?? "")));
+\lot('traces', new \Pages(traces(\LOT . \D . 'page', $link->path ?? "")));
 
 // Set page `type` to `Markdown` by default
 if (null !== \State::get('x.markdown') && !\State::get('x.page.lot.type')) {

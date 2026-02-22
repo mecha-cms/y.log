@@ -5,7 +5,7 @@
       <h2>
         <?= $page->title; ?>
       </h2>
-      <?php if ($site->has('page') && $site->has('parent')): ?>
+      <?php if ($site->has('parent')): ?>
         <p>
           <time datetime="<?= eat($page->time->format('c')); ?>">
             <?= $page->time('%A, %B %d, %Y'); ?>
@@ -13,9 +13,9 @@
         </p>
       <?php endif; ?>
       <?= $page->content; ?>
-      <?php if ($link = $page->link): ?>
+      <?php if ($links = (array) ($page->links ?? [])): ?>
         <p>
-          <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
+          <a href="<?= eat(reset($links)); ?>" rel="nofollow" target="_blank">
             <?= i('Link'); ?> &#x21e2;
           </a>
         </p>

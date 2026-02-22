@@ -12,19 +12,23 @@
         <?php foreach ($pages as $page): ?>
           <article id="page:<?= eat($page->id); ?>">
             <h3>
-              <?php if ($link = $page->link): ?>
-                <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
+              <?php if ($links = (array) ($page->links ?? [])): ?>
+                <a href="<?= eat(reset($links)); ?>" rel="nofollow" target="_blank">
                   <?= $page->title; ?> &#x21e2;
                 </a>
               <?php else: ?>
-                <a href="<?= eat($page->url . (q($page->children) ? '/1' : "")); ?>">
+                <a href="<?= eat($page->link . (q($page->children) ? '/1' : "")); ?>">
                   <?= $page->title; ?>
                 </a>
               <?php endif; ?>
             </h3>
-            <p>
-              <?= $page->description; ?>
-            </p>
+            <?php if ($excerpt = $page->excerpt): ?>
+              <?= $excerpt; ?>
+            <?php else: ?>
+              <p>
+                <?= $page->description; ?>
+              </p>
+            <?php endif; ?>
           </article>
         <?php endforeach; ?>
       <?php else: ?>

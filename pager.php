@@ -8,7 +8,7 @@
   </a>
 <?php endif; ?>
 <?php if ($parent = $page->parent): ?>
-  <a href="<?= eat($parent->url . (q($parent->children) ? '/1' : "")); ?>" title="<?= eat(i('Parent')); ?>">
+  <a href="<?= eat($parent->link . (q($parent->children) ? '/1' : "")); ?>" title="<?= eat(i('Parent')); ?>">
     &#x25c6;
   </a>
 <?php else: ?>
@@ -17,7 +17,7 @@
       &#x25c6;
     </a>
   <?php else: ?>
-    <a href="<?= eat($url); ?>" title="<?= eat(i('Home')); ?>">
+    <a href="<?= eat($link); ?>" title="<?= eat(i('Home')); ?>">
       &#x25c6;
     </a>
   <?php endif; ?>
