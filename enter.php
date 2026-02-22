@@ -10,8 +10,8 @@
     <title>
       <?= w($t->reverse); ?>
     </title>
-    <link href="<?= eat($link . '/favicon.ico'); ?>" rel="icon">
-    <link href="<?= eat($link->current(false, false)); ?>" rel="canonical">
+    <link href="/favicon.ico" rel="icon">
+    <link href="<?= eat($link->path); ?>" rel="canonical">
   </head>
   <body>
     <?= self::alert(); ?>
