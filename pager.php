@@ -17,7 +17,7 @@
       &#x25c6;
     </a>
   <?php else: ?>
-    <a href="<?= eat($link); ?>" title="<?= eat(i('Home')); ?>">
+    <a href="<?= eat($link->home); ?>" title="<?= eat(i('Home')); ?>">
       &#x25c6;
     </a>
   <?php endif; ?>

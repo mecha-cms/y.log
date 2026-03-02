@@ -10,7 +10,7 @@
     <title>
       <?= w($t->reverse); ?>
     </title>
-    <link href="/favicon.ico" rel="icon">
+    <link href="<?= eat($link->base('/favicon.ico')); ?>" rel="icon">
     <link href="<?= eat($link->current(false, false)); ?>" rel="canonical">
   </head>
   <body>

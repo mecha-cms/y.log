@@ -5,7 +5,7 @@
         <?= $site->title; ?>
       </a>
     <?php else: ?>
-      <a href="<?= eat($link); ?>">
+      <a href="<?= eat($link->home); ?>">
         <?= $site->title; ?>
       </a>
     <?php endif; ?>
