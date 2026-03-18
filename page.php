@@ -13,9 +13,9 @@
         </p>
       <?php endif; ?>
       <?= $page->content; ?>
-      <?php if ($links = (array) ($page->links ?? [])): ?>
+      <?php if ($link = first($page->links ?? [])): ?>
         <p>
-          <a href="<?= eat(reset($links)); ?>" rel="nofollow" target="_blank">
+          <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
             <?= i('Link'); ?> &#x21e2;
           </a>
         </p>

@@ -12,8 +12,8 @@
         <?php foreach ($pages as $page): ?>
           <article id="page:<?= eat($page->id); ?>">
             <h3>
-              <?php if ($links = (array) ($page->links ?? [])): ?>
-                <a href="<?= eat(reset($links)); ?>" rel="nofollow" target="_blank">
+              <?php if ($link = first($page->links ?? [])): ?>
+                <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
                   <?= $page->title; ?> &#x21e2;
                 </a>
               <?php else: ?>
