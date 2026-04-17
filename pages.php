@@ -5,9 +5,15 @@
       <h2>
         <?= $page->title; ?>
       </h2>
-      <p>
-        <?= $page->description; ?>
-      </p>
+      <?php if ($description = $page->description): ?>
+        <p>
+          <?= $description; ?>
+        </p>
+      <?php else: ?>
+        <p role="status">
+          <?= i('No %s yet.', 'description'); ?>
+        </p>
+      <?php endif; ?>
       <?php if ($pages->count): ?>
         <?php foreach ($pages as $page): ?>
           <article id="page:<?= eat($page->id); ?>">
@@ -25,9 +31,15 @@
             <?php if ($excerpt = $page->excerpt): ?>
               <?= $excerpt; ?>
             <?php else: ?>
-              <p>
-                <?= $page->description; ?>
-              </p>
+              <?php if ($description = $page->description): ?>
+                <p>
+                  <?= $description; ?>
+                </p>
+              <?php else: ?>
+                <p role="status">
+                  <?= i('No %s yet.', 'description'); ?>
+                </p>
+              <?php endif; ?>
             <?php endif; ?>
           </article>
         <?php endforeach; ?>

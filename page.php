@@ -12,7 +12,13 @@
           </time>
         </p>
       <?php endif; ?>
-      <?= $page->content; ?>
+      <?php if ($content = $page->content): ?>
+        <?= $content; ?>
+      <?php else: ?>
+        <p role="status">
+          <?= i('No %s yet.', 'content'); ?>
+        </p>
+      <?php endif; ?>
       <?php if ($link = first($page->links ?? [])): ?>
         <p>
           <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
