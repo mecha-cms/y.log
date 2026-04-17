@@ -11,7 +11,7 @@
         </a>
       <?php endif; ?>
     </li>
-    <?php foreach ($links as $link): ?>
+    <?php foreach ($links[0] as $link): ?>
       <li>
         <?php if ($link->current): ?>
           <a aria-current="page">

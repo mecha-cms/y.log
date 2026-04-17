@@ -1,16 +1,13 @@
 <?php namespace y\log;
 
 // Create site link data to be used in navigation
-\lot('links', \Pages::from($folder = \LOT . \D . 'page')->sort([1, 'title'])->not(function ($page) use ($state) {
+$links[] = \Pages::from($folder = \LOT . \D . 'page')->sort([1, 'title'])->not(function ($page) use ($state) {
     // Skip home page
     return '/' . \trim($state->route ?? 'index', '/') === $page->route;
-})->with('current', function ($page) use ($link) {
-    // Add current state
-    return 0 === \strpos($link->path . '/', $page->route . '/');
-}));
+});
 
 // Create site trace data to be used in navigation
-\lot('traces', \Pages::from((function ($folder, $of) {
+$links[] = \Pages::from((function ($folder, $of) {
     \extract(\lot(), \EXTR_SKIP);
     $r = [];
     $traces = \explode('/', \trim($of, '/'));
@@ -21,7 +18,9 @@
         }
     }
     return $r;
-})($folder, $link->path ?? "")));
+})($folder, $link->path ?? ""));
+
+\lot('links', $links);
 
 // Set page `type` to `Markdown` by default
 if (null !== \State::get('x.markdown') && !\State::get('x.page.lot.type')) {
