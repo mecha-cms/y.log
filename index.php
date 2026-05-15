@@ -3,7 +3,7 @@
 // Create site link data to be used in navigation
 $data[] = \Pages::from($folder = \LOT . \D . 'page')->sort([1, 'title'])->not(function ($page) use ($state) {
     // Skip home page
-    return '/' . \trim($state->route ?? 'index', '/') === $page->route;
+    return '/' . \trim($state->home ?? 'index', '/') === $page->route;
 });
 
 // Create site trace data to be used in navigation
