@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width" name="viewport">
-    <?php if ($s = w($page->description ?? $site->description ?? "")) { ?>
+    <?php if ($s = w($page->description ?? $site->description ?? "")): ?>
       <meta content="<?= $s; ?>" name="description">
-    <?php } ?>
+    <?php endif; ?>
     <meta content="<?= eat($page->author); ?>" name="author">
     <title>
       <?= w($t->reverse()); ?>
@@ -18,15 +18,15 @@
     <div>
       <header>
         <h1>
-          <?php if ($site->is('home')) { ?>
+          <?php if ($site->is('home')): ?>
             <a aria-current="page">
               <?= $site->title; ?>
             </a>
-          <?php } else { ?>
+          <?php else: ?>
             <a href="<?= eat($link->home); ?>">
               <?= $site->title; ?>
             </a>
-          <?php } ?>
+          <?php endif; ?>
         </h1>
         <p>
           <?= $site->description; ?>
@@ -34,64 +34,64 @@
         <nav aria-label="<?= i('Navigation'); ?>">
           <ul>
             <li>
-              <?php if ($site->is('home')) { ?>
+              <?php if ($site->is('home')): ?>
                 <a aria-current="page">
                   <?= i('Home'); ?>
                 </a>
-              <?php } else { ?>
+              <?php else: ?>
                 <a href="<?= eat($link->home); ?>">
                   <?= i('Home'); ?>
                 </a>
-              <?php } ?>
+              <?php endif; ?>
             </li>
-            <?php foreach ($data[0] as $o) { ?>
+            <?php foreach ($data[0] as $o): ?>
               <li>
-                <?php if ($o->current) { ?>
+                <?php if ($o->current): ?>
                   <a aria-current="page">
                     <?= $o->title; ?>
                   </a>
-                <?php } else { ?>
+                <?php else: ?>
                   <a href="<?= eat(first($o->links ?? []) ?? ($o->link . (q($o->children) ? '/1' : ""))); ?>">
                     <?= $o->title; ?>
                   </a>
-                <?php } ?>
+                <?php endif ?>
               </li>
-            <?php } ?>
+            <?php endforeach; ?>
           </ul>
         </nav>
       </header>
       <main>
-        <?php if ($site->is('page')) { ?>
-          <?php if ($page->exist) { ?>
+        <?php if ($site->is('page')): ?>
+          <?php if ($page->exist): ?>
             <article id="page:<?= eat($page->id); ?>">
-              <?php if ($s = $page->title) { ?>
+              <?php if ($s = $page->title): ?>
                 <h2>
                   <?= $s; ?>
                 </h2>
-              <?php } ?>
-              <?php if ($site->has('parent')) { ?>
+              <?php endif; ?>
+              <?php if ($site->has('parent')): ?>
                 <p>
                   <time datetime="<?= eat($page->time->format('c')); ?>">
                     <?= $page->time('%A, %B %d, %Y'); ?>
                   </time>
                 </p>
-              <?php } ?>
-              <?php if ($s = $page->content) { ?>
+              <?php endif; ?>
+              <?php if ($s = $page->content): ?>
                 <?= $s; ?>
-              <?php } else { ?>
+              <?php else: ?>
                 <p role="status">
                   <?= i('No %s yet.', 'content'); ?>
                 </p>
-              <?php } ?>
-              <?php if ($s = first($page->links ?? [])) { ?>
+              <?php endif; ?>
+              <?php if ($s = first($page->links ?? [])): ?>
                 <p>
                   <a href="<?= eat($s); ?>" rel="nofollow" target="_blank">
                     <?= i('Link'); ?> &#x21e2;
                   </a>
                 </p>
-              <?php } ?>
+              <?php endif; ?>
             </article>
-          <?php } else { ?>
+          <?php else: ?>
             <article id="page:0">
               <h2>
                 <?= i('Error'); ?>
@@ -100,125 +100,125 @@
                 <?= i('%s does not exist.', 'Page'); ?>
               </p>
             </article>
-          <?php } ?>
-        <?php } else if ($site->is('pages')) { ?>
-          <?php if ($page->exist) { ?>
+          <?php endif; ?>
+        <?php elseif ($site->is('pages')): ?>
+          <?php if ($page->exist): ?>
             <article id="page:<?= eat($page->id); ?>">
-              <?php if ($s = $page->title) { ?>
+              <?php if ($s = $page->title): ?>
                 <h2>
                   <?= $s; ?>
                 </h2>
-              <?php } ?>
-              <?php if ($s = $page->description) { ?>
+              <?php endif; ?>
+              <?php if ($s = $page->description): ?>
                 <p>
                   <?= $s; ?>
                 </p>
-              <?php } else { ?>
+              <?php else: ?>
                 <p role="status">
                   <?= i('No %s yet.', 'description'); ?>
                 </p>
-              <?php } ?>
-              <?php if ($pages->count) { ?>
-                <?php foreach ($pages as $page) { ?>
+              <?php endif; ?>
+              <?php if ($pages->count): ?>
+                <?php foreach ($pages as $page): ?>
                   <article id="page:<?= eat($page->id); ?>">
-                    <?php if ($s = $page->title) { ?>
+                    <?php if ($s = $page->title): ?>
                       <h3>
-                        <?php if ($ss = first($page->links ?? [])) { ?>
+                        <?php if ($ss = first($page->links ?? [])): ?>
                           <a href="<?= eat($ss); ?>" rel="nofollow" target="_blank">
                             <?= $s; ?> &#x21e2;
                           </a>
-                        <?php } else { ?>
+                        <?php else: ?>
                           <a href="<?= eat($page->link . (q($page->children) ? '/1' : "")); ?>">
                             <?= $s; ?>
                           </a>
-                        <?php } ?>
+                        <?php endif; ?>
                       </h3>
-                    <?php } ?>
-                    <?php if ($s = $page->excerpt) { ?>
+                    <?php endif; ?>
+                    <?php if ($s = $page->excerpt): ?>
                       <?= $s; ?>
-                    <?php } else if ($s = $page->description) { ?>
+                    <?php elseif ($s = $page->description): ?>
                       <p>
                         <?= $s; ?>
                       </p>
-                    <?php } else { ?>
+                    <?php else: ?>
                       <p role="status">
                         <?= i('No %s yet.', 'description'); ?>
                       </p>
-                    <?php } ?>
+                    <?php endif; ?>
                   </article>
-                <?php } ?>
-              <?php } else { ?>
+                <?php endforeach; ?>
+              <?php else: ?>
                 <p role="status">
                   <?= i('No %s to show.', 'pages'); ?>
                 </p>
-              <?php } ?>
+              <?php endif; ?>
             </article>
-          <?php } else { ?>
+          <?php else: ?>
             <p role="status">
               <?= i('No %s to show.', 'pages'); ?>
             </p>
-          <?php } ?>
-        <?php } ?>
+          <?php endif; ?>
+        <?php endif; ?>
       </main>
-      <?php if ($site->is('pages')) { ?>
+      <?php if ($site->is('pages')): ?>
         <nav aria-label="<?= i('Pagination'); ?>">
-          <?php if ($o = $pager->prev) { ?>
+          <?php if ($o = $pager->prev): ?>
             <a href="<?= eat($o->link); ?>" rel="prev" title="<?= eat($o->title); ?>">
               &#x25c0;
             </a>
-          <?php } else { ?>
+          <?php else: ?>
             <a aria-disabled="true" rel="prev">
               &#x25c0;
             </a>
-          <?php } ?>
-          <?php if ($o = $page->parent) { ?>
+          <?php endif; ?>
+          <?php if ($o = $page->parent): ?>
             <a href="<?= eat($o->link . (q($o->children) ? '/1' : "")); ?>" title="<?= eat(i('Parent')); ?>">
               &#x25c6;
             </a>
-          <?php } else if ($site->is('home')) { ?>
+          <?php elseif ($site->is('home')): ?>
             <a aria-disabled="true" title="<?= eat(i('Parent')); ?>">
               &#x25c6;
             </a>
-          <?php } else { ?>
+          <?php else: ?>
             <a href="<?= eat($link->home); ?>" title="<?= eat(i('Home')); ?>">
               &#x25c6;
             </a>
-          <?php } ?>
-          <?php if ($o = $pager->next) { ?>
+          <?php endif; ?>
+          <?php if ($o = $pager->next): ?>
             <a href="<?= eat($o->link); ?>" rel="next" title="<?= eat($o->title); ?>">
               &#x25b6;
             </a>
-          <?php } else { ?>
+          <?php else: ?>
             <a aria-disabled="true" rel="next">
               &#x25b6;
             </a>
-          <?php } ?>
+          <?php endif; ?>
         </nav>
-      <?php } ?>
+      <?php endif; ?>
       <footer>
         <p aria-label="<?= i('Breadcrumb'); ?>">
-          <?php if ($site->is('home')) { ?>
+          <?php if ($site->is('home')): ?>
             <a aria-current="location">
               <?= i('Home'); ?>
             </a>
-          <?php } else { ?>
+          <?php else: ?>
             <a href="<?= eat($link->home); ?>">
               <?= i('Home'); ?>
             </a>
-          <?php } ?>
+          <?php endif; ?>
           <?= ($total = count($data[1])) ? ' / ' : ""; ?>
-          <?php foreach ($data[1] as $i => $o) { ?>
-            <?php if ($i < $total - 1) { ?>
+          <?php foreach ($data[1] as $i => $o): ?>
+            <?php if ($i < $total - 1): ?>
               <a href="<?= eat($o->link . '/1'); ?>">
                 <?= $o->title; ?>
               </a>
               <?= ' / '; ?>
-            <?php } else { ?>
+            <?php else: ?>
               <a aria-current="location">
                 <?= $o->title; ?>
               </a>
-            <?php } ?>
-          <?php } ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
         </p>
         <p>
           &#x00a9; <?= $date->year; ?> &#x00b7; <a href="<?= eat($link->home); ?>">
