@@ -148,26 +148,15 @@
                   </article>
                 <?php } ?>
               <?php } else { ?>
-                <?php if ($site->has('part')) { ?>
-                  <p role="status">
-                    <?= i('No more %s to show.', 'pages'); ?>
-                  </p>
-                <?php } else { ?>
-                  <p role="status">
-                    <?= i('No %s yet.', 'pages'); ?>
-                  </p>
-                <?php } ?>
+                <p role="status">
+                  <?= i('No %s to show.', 'pages'); ?>
+                </p>
               <?php } ?>
             </article>
           <?php } else { ?>
-            <article id="page:0">
-              <h2>
-                <?= i('Error'); ?>
-              </h2>
-              <p>
-                <?= i('%s does not exist.', 'Page'); ?>
-              </p>
-            </article>
+            <p role="status">
+              <?= i('No %s to show.', 'pages'); ?>
+            </p>
           <?php } ?>
         <?php } ?>
       </main>
