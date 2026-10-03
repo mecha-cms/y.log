@@ -206,19 +206,21 @@
               <?= i('Home'); ?>
             </a>
           <?php endif; ?>
-          <?= ($total = count($data[1])) ? ' / ' : ""; ?>
-          <?php foreach ($data[1] as $i => $o): ?>
-            <?php if ($i < $total - 1): ?>
-              <a href="<?= eat($o->link . '/1'); ?>">
-                <?= $o->title; ?>
-              </a>
-              <?= ' / '; ?>
-            <?php else: ?>
-              <a aria-current="location">
-                <?= $o->title; ?>
-              </a>
-            <?php endif; ?>
-          <?php endforeach; ?>
+          <?php if ($max = count($data[1])): ?>
+            <?= ' / '; ?>
+            <?php foreach ($data[1] as $i => $o): ?>
+              <?php if ($i < $max - 1): ?>
+                <a href="<?= eat($o->link . '/1'); ?>">
+                  <?= $o->title; ?>
+                </a>
+                <?= ' / '; ?>
+              <?php else: ?>
+                <a aria-current="location">
+                  <?= $o->title; ?>
+                </a>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </p>
         <p>
           &#x00a9; <?= $date->year; ?> &#x00b7; <a href="<?= eat($link->home); ?>">
